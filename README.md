@@ -14,7 +14,7 @@ pymailer = PyMailer({
   'password': 'xxxxxxxxxx',
   'to': 'xxxxx@gmail.com',
   'subject': 'Helo World',
-  'body': '<p>Hi i'm Rio</p>',
+  'body': '<p>Hi im Rio</p>',
   'display': True
 })
 
