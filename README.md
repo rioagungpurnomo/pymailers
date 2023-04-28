@@ -27,4 +27,4 @@ Help me to buy a laptop because my laptop is broken and I don't have a laptop, I
 Link : **[Donate](https://trakteer.id/rioagungpurnomo)**
 
 ## Contact me
-Contact me via email: **rioagungpurnomo.ak@gmail.com**, give me input or suggestions or request additional features for DCobwebs to become the number 1 tool for your help.
+Contact me via email: rioagungpurnomo.ak@gmail.com, I'm waiting for your input or suggestions.
