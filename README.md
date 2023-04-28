@@ -1,5 +1,5 @@
 # PyMailer
-The classic email sending library for Python 
+The classic email sending library for Python.
 
 ## Example
 A simple example is just sending an email message with PyMailer, in **display** you can replace it with **false** then it will not get any logs but if it is made **true** then you will get a log after sending the email message.
