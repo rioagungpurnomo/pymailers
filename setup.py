@@ -1,9 +1,14 @@
 from setuptools import setup
 
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
 setup(
     name='pymailers',
     version='1.0.0',
     description='The classic email sending library for Python.',
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     author='Rio Agung Purnomo',
     author_email='rioagungpurnomo.ak@gmail.com',
     url='https://github.com/rioagungpurnomo/pymailers',
