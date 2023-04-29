@@ -11,7 +11,7 @@ pip install pymailers
 A simple example is just sending an email message with PyMailer, in **display** you can replace it with **false** then it will not get any logs but if it is made **true** then you will get a log after sending the email message.
 
 ```python
-from PyMailer import pymailers.PyMailer
+from pymailers.PyMailer import PyMailer
 
 pymailer = PyMailer({
   'smtp_host': 'smtp.gmail.com',
