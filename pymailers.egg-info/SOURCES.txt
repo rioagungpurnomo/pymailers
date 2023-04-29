@@ -1,0 +1,8 @@
+README.md
+setup.py
+pymailers/PyMailer.py
+pymailers/__init__.py
+pymailers.egg-info/PKG-INFO
+pymailers.egg-info/SOURCES.txt
+pymailers.egg-info/dependency_links.txt
+pymailers.egg-info/top_level.txt
