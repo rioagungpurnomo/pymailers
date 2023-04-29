@@ -1,8 +1,9 @@
 import smtplib
+import ExceptionType
+from sys import exit as logout
 from email.mime.text import MIMEText
 
 class PyMailer:
-
   def __init__(self, array):
     self.smtp_host = array['smtp_host']
     self.smtp_port = array['smtp_port']
@@ -19,6 +20,10 @@ class PyMailer:
     self.PURPLE = '\x1b[1;94m'
     self.BLUE = '\x1b[1;96m'
     self.DEFAULT = '\x1b[0m'
+    self.success = f"{self.WHITE}[{self.GREEN}!{self.WHITE}]"
+    self.failed = f"{self.WHITE}[{self.RED}!{self.WHITE}]"
+    self.message_smtp = "SMTP Host and SMTP Port error occurred."
+    self.message_passwprd = "SMTP Host and SMTP Port error occurred."
     
   def send(self):
     msg = MIMEText(self.body, 'html')
@@ -26,15 +31,21 @@ class PyMailer:
     msg['To'] = self.to
     msg['Subject'] = self.subject
     
-    with smtplib.SMTP(self.smtp_host, self.smtp_port) as smtp:
-      smtp.starttls()
-      smtp.login(self.email, self.password)
-      smtp.send_message(msg)
-      if self.display:
-        print(f"""SMTP Host : {self.smtp_host}
-{self.WHITE}SMTP Port : {self.smtp_port}
-Email : {self.email}
-To : {self.to}
-Subject : {self.subject}
-Body : {self.body}\n\n
-{self.GREEN}Email sent successfully.{self.DEFAULT}""")
+    try:
+      with smtplib.SMTP(self.smtp_host, self.smtp_port) as smtp:
+        smtp.starttls()
+    except ExceptionType:
+      logout(print(f"""\n{self.failed} {self.message_smtp}{self.DEFAULT}"""))
+    try:
+        smtp.login(self.email, self.password)
+        smtp.send_message(msg)
+        if self.display:
+          print(f"""\n{self.WHITE}SMTP Host : {self.smtp_host}
+          SMTP Port : {self.smtp_port}
+          Email : {self.email}
+          To : {self.to}
+          Subject : {self.subject}
+          Body : {self.body}\n
+          {self.success} Email sent successfully.{self.DEFAULT}""")
+    except ExceptionType:
+      logout(print(f"""\n{self.failed} {self.message}{self.DEFAULT}"""))
