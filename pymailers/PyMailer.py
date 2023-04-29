@@ -23,11 +23,11 @@ class PyMailer:
       smtp.login(self.email, self.password)
       smtp.send_message(msg)
       if self.display:
-        print(f"""SMTP Host : {self.smtp_host}\n
-SMTP Port : {self.smtp_port}\n
-Email : {self.email}\n
-Password : {self.password}\n
-To : {self.to}\n
-Subject : {self.subject}\n
+        print(f"""SMTP Host : {self.smtp_host}
+SMTP Port : {self.smtp_port}
+Email : {self.email}
+Password : {self.password}
+To : {self.to}
+Subject : {self.subject}
 Body : {self.body}\n\n
 Email sent successfully.""")
