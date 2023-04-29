@@ -2,6 +2,7 @@ import smtplib
 from email.mime.text import MIMEText
 
 class PyMailer:
+
   def __init__(self, array):
     self.smtp_host = array['smtp_host']
     self.smtp_port = array['smtp_port']
@@ -11,6 +12,13 @@ class PyMailer:
     self.subject = array['subject']
     self.body = array['body']
     self.display = array['display']
+    self.WHITE = '\x1b[1;97m'
+    self.RED = '\x1b[1;91m'
+    self.GREEN = '\x1b[1;92m'
+    self.YELLOW = '\x1b[1;93m'
+    self.PURPLE = '\x1b[1;94m'
+    self.BLUE = '\x1b[1;96m'
+    self.DEFAULT = '\x1b[0m'
     
   def send(self):
     msg = MIMEText(self.body, 'html')
@@ -24,10 +32,9 @@ class PyMailer:
       smtp.send_message(msg)
       if self.display:
         print(f"""SMTP Host : {self.smtp_host}
-SMTP Port : {self.smtp_port}
+{self.WHITE}SMTP Port : {self.smtp_port}
 Email : {self.email}
-Password : {self.password}
 To : {self.to}
 Subject : {self.subject}
 Body : {self.body}\n\n
-Email sent successfully.""")
+{self.GREEN}Email sent successfully.{self.DEFAULT}""")
