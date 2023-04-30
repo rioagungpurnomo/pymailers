@@ -1,5 +1,4 @@
 import smtplib
-import ExceptionType
 from sys import exit as logout
 from email.mime.text import MIMEText
 
@@ -34,7 +33,7 @@ class PyMailer:
     try:
       with smtplib.SMTP(self.smtp_host, self.smtp_port) as smtp:
         smtp.starttls()
-    except ExceptionType:
+    except Exception:
       logout(print(f"""\n{self.failed} {self.message_smtp}{self.DEFAULT}"""))
     try:
         smtp.login(self.email, self.password)
@@ -47,5 +46,5 @@ class PyMailer:
           Subject : {self.subject}
           Body : {self.body}\n
           {self.success} Email sent successfully.{self.DEFAULT}""")
-    except ExceptionType:
+    except Exception:
       logout(print(f"""\n{self.failed} {self.message}{self.DEFAULT}"""))
